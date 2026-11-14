@@ -1,0 +1,156 @@
+#------accounts-----
+
+# API CALL FOR CREATE ADMIN
+
+###
+POST http://127.0.0.1:8000/owner/register/
+Content-Type: application/json
+
+{
+  "username":"admin",
+  "email":"admin@gmail.com",
+  "password":"admin@123"
+}
+
+# API CALL FOR CREATE PATIENT
+
+###
+POST http://127.0.0.1:8000/patient/register/
+Content-Type: application/json
+
+{
+  "username":"patient",
+  "email":"patient@gmail.com",
+  "password":"patient@123"
+}
+
+#-------Doctor--------------
+# API CALL FOR LISTING
+
+###
+GET http://127.0.0.1:8000/doctor/
+Accept: application/json
+Authorization: Basic admin:admin@123
+
+# API CALL FOR CREATE
+
+###
+POST http://127.0.0.1:8000/doctor/
+Content-Type: application/json
+Authorization: Basic admin:admin@123
+
+
+{
+    "name":"Vishnu",
+    "specialization":"Dentistry",
+    "contact":"657853650",
+    "email":"vishnu@gmail.com",
+    "experience":3,
+    "fee":400
+}
+
+
+# API CALL FOR RETRIEVE
+
+###
+GET http://127.0.0.1:8000/doctor/2/
+Accept: application/json
+Authorization: Basic admin:admin@123
+
+
+
+# API CALL FOR UPDATE
+
+###
+PUT  http://127.0.0.1:8000/doctor/2/
+Content-Type: application/json
+Authorization: Basic admin:admin@123
+
+
+{
+  "id": 1,
+  "name": "Arun",
+  "specialization": "cardiology",
+  "contact": "12334566",
+  "email": "arun@gmail.com",
+  "experience": 5,
+  "fee": "700.00"
+}
+
+
+# API CALL FOR DELETE
+
+###
+DELETE  http://127.0.0.1:8000/doctor/2/
+Accept: application/json
+Authorization: Basic admin:admin@123
+
+
+
+#---------------APPOINTMENT-------------
+
+
+
+# API CALL FOR CREATE
+
+###
+POST http://127.0.0.1:8000/appointment/
+Content-Type: application/json
+Authorization: Basic patient:patient@123
+
+
+{
+    "name":"Surya",
+    "phone":"775458798",
+    "doctor":2,
+    "appointment_date":"2026-12-10" 
+}
+
+
+# API CALL FOR RETRIEVE
+
+###
+GET http://127.0.0.1:8000/appointment/1/
+Accept: application/json
+Authorization: Basic patient:patient@123
+
+
+
+# API CALL FOR UPDATE
+
+###
+PUT  http://127.0.0.1:8000/appointment/1/
+Content-Type: application/json
+Authorization: Basic patient:patient@123
+
+
+{
+  
+  "id": "1",
+  "name": "Arun",
+  "phone": "644355789",
+  "doctor": 2,
+  "appointment_date": "2026-05-06",
+  "appointment_time": null,
+  "token": null
+}
+
+# API CALL FOR DELETE
+
+###
+DELETE  http://127.0.0.1:8000/appointment/2/
+Accept: application/json
+Authorization: Basic patient:patient@123
+
+
+
+# API CALL FOR SUMMARY 
+
+###
+POST http://127.0.0.1:8000/appointment/summary/
+Content-Type: application/json
+
+{
+  "doctor":2,
+  "appointment_date":"2026-12-10"
+}
